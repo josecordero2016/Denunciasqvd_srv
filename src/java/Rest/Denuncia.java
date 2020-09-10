@@ -46,6 +46,10 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Denuncia.findByFecha", query = "SELECT d FROM Denuncia d WHERE d.fecha = :fecha")})
 public class Denuncia implements Serializable {
 
+    @Size(max = 2147483647)
+    @Column(name = "atendida")
+    private String atendida;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -220,6 +224,14 @@ public class Denuncia implements Serializable {
     @Override
     public String toString() {
         return "Rest.Denuncia[ idDenuncia=" + idDenuncia + " ]";
+    }
+
+    public String getAtendida() {
+        return atendida;
+    }
+
+    public void setAtendida(String atendida) {
+        this.atendida = atendida;
     }
     
 }

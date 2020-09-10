@@ -47,6 +47,10 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Usuario.findByTipo", query = "SELECT u FROM Usuario u WHERE u.tipo = :tipo")})
 public class Usuario implements Serializable {
 
+    @Lob
+    @Column(name = "imagen")
+    private byte[] imagen;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -108,9 +112,6 @@ public class Usuario implements Serializable {
     @Size(min = 1, max = 10)
     @Column(name = "tipo")
     private String tipo;
-    @Lob
-    @Column(name = "imagen")
-    private byte[] imagen;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUsuario")
     private Collection<Denuncia> denunciaCollection;
     @OneToMany(mappedBy = "idUsuario")
@@ -236,13 +237,6 @@ public class Usuario implements Serializable {
         this.tipo = tipo;
     }
 
-    public byte[] getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(byte[] imagen) {
-        this.imagen = imagen;
-    }
 
     @XmlTransient
     public Collection<Denuncia> getDenunciaCollection() {
@@ -294,6 +288,14 @@ public class Usuario implements Serializable {
     @Override
     public String toString() {
         return "Rest.Usuario[ idUsuario=" + idUsuario + " ]";
+    }
+
+    public byte[] getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
     }
     
 }

@@ -1,4 +1,3 @@
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -23,13 +22,13 @@ import javax.ws.rs.core.MediaType;
 
 /**
  *
- * @author PC
+ * @author im_jo
  */
 @Stateless
 @Path("rest.notificacion")
 public class NotificacionFacadeREST extends AbstractFacade<Notificacion> {
 
-    @PersistenceContext(unitName = "Denunciasqvd_srvPU")
+    @PersistenceContext(unitName = "Denunciasqvd_serverPU")
     private EntityManager em;
 
     public NotificacionFacadeREST() {

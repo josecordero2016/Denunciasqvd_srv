@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author PC
+ * @author im_jo
  */
 @Entity
 @Table(name = "usuario")
@@ -113,8 +113,6 @@ public class Usuario implements Serializable {
     private byte[] imagen;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUsuario")
     private Collection<Denuncia> denunciaCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUsuario")
-    private Collection<Puntuacion> puntuacionCollection;
     @OneToMany(mappedBy = "idUsuario")
     private Collection<Notificacion> notificacionCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idUsuario")
@@ -253,15 +251,6 @@ public class Usuario implements Serializable {
 
     public void setDenunciaCollection(Collection<Denuncia> denunciaCollection) {
         this.denunciaCollection = denunciaCollection;
-    }
-
-    @XmlTransient
-    public Collection<Puntuacion> getPuntuacionCollection() {
-        return puntuacionCollection;
-    }
-
-    public void setPuntuacionCollection(Collection<Puntuacion> puntuacionCollection) {
-        this.puntuacionCollection = puntuacionCollection;
     }
 
     @XmlTransient

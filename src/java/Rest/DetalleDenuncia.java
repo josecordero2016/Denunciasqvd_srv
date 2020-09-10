@@ -18,21 +18,18 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author PC
+ * @author im_jo
  */
 @Entity
 @Table(name = "detalle_denuncia")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "DetalleDenuncia.findAll", query = "SELECT d FROM DetalleDenuncia d")
-    , @NamedQuery(name = "DetalleDenuncia.findByIdDetalleDenuncia", query = "SELECT d FROM DetalleDenuncia d WHERE d.idDetalleDenuncia = :idDetalleDenuncia")
-    , @NamedQuery(name = "DetalleDenuncia.findByRuta", query = "SELECT d FROM DetalleDenuncia d WHERE d.ruta = :ruta")})
+    , @NamedQuery(name = "DetalleDenuncia.findByIdDetalleDenuncia", query = "SELECT d FROM DetalleDenuncia d WHERE d.idDetalleDenuncia = :idDetalleDenuncia")})
 public class DetalleDenuncia implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,11 +41,6 @@ public class DetalleDenuncia implements Serializable {
     @Lob
     @Column(name = "imagen")
     private byte[] imagen;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 150)
-    @Column(name = "ruta")
-    private String ruta;
     @JoinColumn(name = "id_denuncia", referencedColumnName = "id_denuncia")
     @ManyToOne(optional = false)
     private Denuncia idDenuncia;
@@ -58,11 +50,6 @@ public class DetalleDenuncia implements Serializable {
 
     public DetalleDenuncia(Integer idDetalleDenuncia) {
         this.idDetalleDenuncia = idDetalleDenuncia;
-    }
-
-    public DetalleDenuncia(Integer idDetalleDenuncia, String ruta) {
-        this.idDetalleDenuncia = idDetalleDenuncia;
-        this.ruta = ruta;
     }
 
     public Integer getIdDetalleDenuncia() {
@@ -79,14 +66,6 @@ public class DetalleDenuncia implements Serializable {
 
     public void setImagen(byte[] imagen) {
         this.imagen = imagen;
-    }
-
-    public String getRuta() {
-        return ruta;
-    }
-
-    public void setRuta(String ruta) {
-        this.ruta = ruta;
     }
 
     public Denuncia getIdDenuncia() {

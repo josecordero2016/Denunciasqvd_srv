@@ -22,13 +22,13 @@ import javax.ws.rs.core.MediaType;
 
 /**
  *
- * @author PC
+ * @author im_jo
  */
 @Stateless
 @Path("rest.ratificaciones")
 public class RatificacionesFacadeREST extends AbstractFacade<Ratificaciones> {
 
-    @PersistenceContext(unitName = "Denunciasqvd_srvPU")
+    @PersistenceContext(unitName = "Denunciasqvd_serverPU")
     private EntityManager em;
 
     public RatificacionesFacadeREST() {

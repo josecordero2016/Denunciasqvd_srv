@@ -10,7 +10,7 @@ import javax.ws.rs.core.Application;
 
 /**
  *
- * @author PC
+ * @author im_jo
  */
 @javax.ws.rs.ApplicationPath("webresources")
 public class ApplicationConfig extends Application {
@@ -32,7 +32,6 @@ public class ApplicationConfig extends Application {
         resources.add(Rest.service.DenunciaFacadeREST.class);
         resources.add(Rest.service.DetalleDenunciaFacadeREST.class);
         resources.add(Rest.service.NotificacionFacadeREST.class);
-        resources.add(Rest.service.PuntuacionFacadeREST.class);
         resources.add(Rest.service.RatificacionesFacadeREST.class);
         resources.add(Rest.service.UsuarioFacadeREST.class);
     }
